@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
        
         primarySwatch:  AppColors.mySwatch
       ),
-      home:LoginScreen(),
+      home:LoginScreen(),//login here
     );
   }
 }

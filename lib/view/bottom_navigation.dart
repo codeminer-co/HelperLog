@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:helperlog/utils/constants.dart';
-import 'package:helperlog/utils/widgets/drawer.dart';
 import 'package:helperlog/view/home_screen.dart';
 import 'package:helperlog/view/profile_screen.dart';
 import 'package:helperlog/view/search_screen.dart';
-
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class BottomNavBar extends StatelessWidget {

@@ -42,31 +42,29 @@ class _LoginScreenState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: const [
                     Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 20),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                       child: Text(
                         'HelperLog',
                         style: textStyle01,
                       ),
                     ),
-
-                    
                   ]),
             ),
           ),
           Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-            child: ReusableContainer( height:null,
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+            child: ReusableContainer(
+              height: null,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Login',
                     style: textStyle02,
                   ),
                   // Divider(),
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   Text('Welcome back!', style: textStyle06),
@@ -80,20 +78,22 @@ class _LoginScreenState extends State<LoginScreen> {
                         //   'Email',
                         //   style: textStyle03,
                         // ),
-                       
+
                         MyTextFormField(
-                           decColor: AppColors.greyColorShade,
+                          decColor: AppColors.greyColorShade,
                           icon: Icons.email,
                           controller: emailController,
                           suffixicon: null,
-                          myObscureText: false, hinttext: 'Email', onChanged: (value) {  },
+                          myObscureText: false,
+                          hinttext: 'Email',
+                          onChanged: (value) {},
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-                       
+
                         MyTextFormField(
-                            decColor: AppColors.greyColorShade,
+                          decColor: AppColors.greyColorShade,
                           myObscureText: !_obscureText,
                           controller: passController,
                           suffixicon: IconButton(
@@ -108,41 +108,44 @@ class _LoginScreenState extends State<LoginScreen> {
                               });
                             },
                           ),
-                          icon: Icons.lock, hinttext: 'Password', onChanged: (value) {  },
+                          icon: Icons.lock,
+                          hinttext: 'Password',
+                          onChanged: (value) {},
                         ),
                         const SizedBox(
                           height: 15,
                         ),
-                                             CustomButton(
-                                              color:AppColors.appColor,
+                        CustomButton(
+                          color: AppColors.appColor,
                           text: 'Login',
-                          onPressed: (){
-                             Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>BottomNavBar()));
-                          }, textColor: textStyle04,
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BottomNavBar()));
+                          },
+                          textColor: textStyle04,
                         ),
                         const SizedBox(
                           height: 15,
                         ),
                         InkWell(
                           onTap: () {
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => RegisterScreen()));
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const RegisterScreen()));
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment:
-                                CrossAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
                                 "You don't have an account?",
                                 style: textStyle06,
                               ),
-                              Text(
+                              const Text(
                                 "Sign up",
                                 style: textStyle05,
                               )
@@ -162,12 +165,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       ),
     );
-  }
-  
-  _handleButtonPressed() {
-     Navigator.pushReplacement(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>const RegisterScreen()));
   }
 }

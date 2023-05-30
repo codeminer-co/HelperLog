@@ -4,18 +4,21 @@ import 'package:helperlog/models/purchaseOrderModel.dart';
 import 'package:helperlog/services/repo.dart';
 import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/widgets/reusableContainer.dart';
+import 'package:helperlog/view/create_invoiceForm.dart';
 import 'package:helperlog/view/create_purchaseForm.dart';
 
 class ViewPurchaseInserted extends StatefulWidget {
-final PurchaseOrderData? purchaseOrderData;
-   ViewPurchaseInserted({super.key, required this.purchaseOrderData});
+  const ViewPurchaseInserted({super.key});
+
+
+ 
 
   @override
   State<ViewPurchaseInserted> createState() => _ViewPurchaseInsertedState();
 }
 
 class _ViewPurchaseInsertedState extends State<ViewPurchaseInserted> {
-   
+   PurchaseOrderData repo =PurchaseOrderData();
 
   @override
   Widget build(BuildContext context) {
@@ -25,22 +28,33 @@ class _ViewPurchaseInsertedState extends State<ViewPurchaseInserted> {
                         children: [
                           ReusableContainer(
                             height: height * 0.2,
-                            child: ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: widget.purchaseOrderData?.purchaseOrders.length,
-                                itemBuilder: (context, index) {
-                                  PurchaseOrder purchaseOrder =
-                                    widget.purchaseOrderData!.purchaseOrders[index];
-
-                                  return ListTile(
-                                      title: Text(
-                                        purchaseOrder.title,
-                                      ),
-                                      subtitle: Text(purchaseOrder.orderNumber),
-                                      trailing: IconButton(
-                                        icon: const Icon(Icons.add_circle,
-                                            color: AppColors.appColor),
-                                        onPressed: () {
+                            child: FutureBuilder<List<List<String>>>(
+      future: repo.getPurchases(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          List<List<String>> purchases = snapshot.data!;
+          return ListView.builder(
+            itemCount: purchases.length,
+            itemBuilder: (context, index) {
+              List<String> purchase = purchases[index];
+              return ListTile(
+                title: Text(purchase[0]), // Order title
+                subtitle: Text(purchase[1]), // Other details
+                trailing: IconButton(onPressed: (){Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>   AddInvoice()));
+},icon: Icon(Icons.add_circle_outline,color:AppColors.appColor),)
+              );
+            },
+          );
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        } else {
+          return CircularProgressIndicator();
+        }
+      },
+    )
                                           // showDialog(
                                           //   context: context,
                                           //   builder: (BuildContext context) {
@@ -113,9 +127,7 @@ class _ViewPurchaseInsertedState extends State<ViewPurchaseInserted> {
                                           //     );
                                           //   },
                                          // );
-                                        },
-                                      ));
-                                }),
+                              
                            // child:Text("kk")
                           ),
                           const SizedBox(height: 5),
@@ -126,7 +138,7 @@ class _ViewPurchaseInsertedState extends State<ViewPurchaseInserted> {
 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>   AddPurchase(purchaseOrderData: widget.purchaseOrderData)));
+                                      builder: (context) =>   AddPurchase()));
 
                             
                                 },

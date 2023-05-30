@@ -13,11 +13,11 @@ class Profile extends StatelessWidget {
     
   Scaffold(
    appBar:PreferredSize(
-          preferredSize: Size.fromHeight(60.0),
+          preferredSize: const Size.fromHeight(60.0),
           child: CustomAppBar(
              popup: null,
             icon: null, iconColor: null, onPressed: () {  },backgroundColor: AppColors.appColor, text: 'Profile', textColor:AppColors.whiteColor, ),
-        ),drawer:MyDrawer(),
+        ),drawer:const MyDrawer(),
     );
   }
 }

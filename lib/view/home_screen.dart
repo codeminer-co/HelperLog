@@ -6,11 +6,7 @@ import 'package:helperlog/utils/widgets/grid_widget.dart';
 import 'package:helperlog/utils/widgets/home_popup_btn.dart';
 import 'package:helperlog/utils/widgets/reusableContainer.dart';
 import 'package:helperlog/utils/widgets/stack_widget.dart';
-import 'package:helperlog/view/create_company.dart';
-import 'package:helperlog/view/create_doc.dart';
 import 'package:helperlog/view/tracking_screen.dart';
-import 'package:helperlog/view/view_company.dart';
-import 'package:helperlog/view/view_doc.dart';
 
 enum MenuAction { create, view, edit }
 
@@ -20,7 +16,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(60.0),
@@ -30,19 +26,20 @@ class Home extends StatelessWidget {
             textColor: AppColors.whiteColor,
             icon: null,
             iconColor: AppColors.whiteColor,
-            onPressed: () {
-              //buildDialog( context);print("fff");
-              //  buildPopupBtn(context);print("fff");
-            },
+            onPressed: () {},
             popup: buildPopupBtn(context),
           ),
         ),
         // appBar:AppBar(),
         drawer: const MyDrawer(),
         body: ListView(padding: EdgeInsets.zero, children: [
-          StackWidget(height: height,image: Image.asset(
+          StackWidget(
+              height: height,
+              image: Image.asset(
                 'assets/images/img_1.png',
-              ),text:"Hey John",subtext: "you have new updates"),
+              ),
+              text: "Hey John",
+              subtext: "you have new updates"),
 
           Padding(
             padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),

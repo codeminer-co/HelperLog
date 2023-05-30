@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:helperlog/models/purchaseOrderModel.dart';
-import 'package:helperlog/services/repo.dart';
+
 import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/widgets/appbar.dart';
 import 'package:helperlog/utils/widgets/custom_button.dart';
-import 'package:helperlog/utils/widgets/reusableContainer.dart';
+
 import 'package:helperlog/utils/widgets/textformfield.dart';
 import 'package:helperlog/utils/widgets/view_purchase.dart';
-import 'package:helperlog/view/bottom_navigation.dart';
+
 import 'package:helperlog/view/create_purchaseForm.dart';
 
 class CreateDoc extends StatefulWidget {
-  final PurchaseOrderData? purchaseOrderData;
-  const CreateDoc({super.key, this.purchaseOrderData});
+  const CreateDoc({super.key});
 
   @override
   State<CreateDoc> createState() => _CreateDocState();
@@ -27,8 +25,6 @@ class _CreateDocState extends State<CreateDoc> {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: AppColors.appColor,
       appBar: PreferredSize(
@@ -54,7 +50,7 @@ class _CreateDocState extends State<CreateDoc> {
                     hinttext: 'Title',
                     icon: Icons.title,
                     suffixicon: null,
-                    onChanged: (String) {},
+                    onChanged: (value) {},
                     myObscureText: false,
                     decColor: AppColors.whiteColor),
                 const SizedBox(height: 10),
@@ -63,7 +59,7 @@ class _CreateDocState extends State<CreateDoc> {
                   hinttext: 'Starting location',
                   icon: Icons.add_location,
                   suffixicon: null,
-                  onChanged: (String) {},
+                  onChanged: (value) {},
                   myObscureText: false,
                   decColor: AppColors.whiteColor,
                 ),
@@ -73,7 +69,7 @@ class _CreateDocState extends State<CreateDoc> {
                   hinttext: 'Type',
                   icon: Icons.directions,
                   suffixicon: null,
-                  onChanged: (String) {},
+                  onChanged: (value) {},
                   myObscureText: false,
                   decColor: AppColors.whiteColor,
                 ),
@@ -116,7 +112,7 @@ class _CreateDocState extends State<CreateDoc> {
                   hinttext: 'Attach',
                   icon: Icons.attach_file,
                   suffixicon: null,
-                  onChanged: (String) {},
+                  onChanged: (value) {},
                   myObscureText: false,
                   decColor: AppColors.whiteColor,
                 ),
@@ -131,17 +127,14 @@ class _CreateDocState extends State<CreateDoc> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  const AddPurchase(purchaseOrderData: null)));
+                              builder: (context) => const AddPurchase()));
 
                       setState(() {
                         orderSubmit = true;
                       });
                     }),
                 const SizedBox(height: 10),
-                orderSubmit
-                    ? ViewPurchaseInserted(purchaseOrderData:  widget.purchaseOrderData)
-                    : const SizedBox(),
+                orderSubmit ? const ViewPurchaseInserted() : const SizedBox(),
 
 //  const SizedBox(width: 10),
 

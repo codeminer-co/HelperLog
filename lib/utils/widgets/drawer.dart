@@ -3,15 +3,12 @@ import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/widgets/drawer_list.dart';
 import 'package:helperlog/view/settings.dart';
 import 'package:helperlog/view/tracking_screen.dart';
-import 'package:helperlog/view/view_doc.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Drawer(
       child: ListView(
         children: <Widget>[
@@ -45,8 +42,6 @@ class MyDrawer extends StatelessWidget {
               icon: Icons.file_copy,
               onPressed: () {
                 Navigator.of(context).pop();
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => ViewDoc()));
               }),
 
           DrawerList(

@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/widgets/appbar.dart';
-import 'package:helperlog/utils/widgets/drawer.dart';
-import 'package:helperlog/utils/widgets/grid_widget.dart';
-import 'package:helperlog/utils/widgets/home_popup_btn.dart';
+import 'package:helperlog/utils/widgets/custom_tile.dart';
+import 'package:helperlog/utils/widgets/customhome_btns.dart';
 import 'package:helperlog/utils/widgets/reusableContainer.dart';
-import 'package:helperlog/utils/widgets/stack_widget.dart';
-import 'package:helperlog/view/tracking_screen.dart';
-
-enum MenuAction { create, view, edit }
+import 'package:helperlog/utils/widgets/trackmanifest_btn.dart';
+import 'package:helperlog/view/view_tracked_doc.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -16,66 +13,86 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-
     return Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(60.0),
-          child: CustomAppBar(
-            backgroundColor: AppColors.appColor,
-            text: 'Home',
-            textColor: AppColors.whiteColor,
-            icon: null,
-            iconColor: AppColors.whiteColor,
-            onPressed: () {},
-            popup: buildPopupBtn(context),
-          ),
-        ),
+        backgroundColor: AppColors.whiteColor,
+        appBar: CustomAppBar(
+            appBarHeight: 80,
+            actionIcons: Icons.person,
+            leadingIcon: Icons.menu,
+            onPressedLeadIcon: () {},
+            onPressedActionIcon: () {},
+            title: "Welcome, Agent"),
         // appBar:AppBar(),
-        drawer: const MyDrawer(),
-        body: ListView(padding: EdgeInsets.zero, children: [
-          StackWidget(
-              height: height,
-              image: Image.asset(
-                'assets/images/img_1.png',
-              ),
-              text: "Hey John",
-              subtext: "you have new updates"),
-
-          Padding(
-            padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text("Tracking", style: textStyle08),
-                const SizedBox(height: 10),
-                ReusableContainer(
-                  height: null,
-                  child: ListTile(
-                    leading: const Icon(Icons.local_shipping,
-                        color: AppColors.appColor),
-                    title: const Text("Track Shipment", style: textStyle03),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.arrow_forward,
-                          color: AppColors.appColor),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const TrackingScreen()));
-                      },
+        // drawer: const MyDrawer(),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+              child: Column(
+                children: [
+                  Row(
+                    children: const [
+                      Expanded(
+                          child: CustomHomeButtons(
+                              color: AppColors.appColor,
+                              title: 'Total Runners',
+                              value: '12')),
+                      SizedBox(width: 10),
+                      Expanded(
+                          child: CustomHomeButtons(
+                              color: AppColors.orangeShadeColor,
+                              title: 'Total Manisfest',
+                              value: '12')),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: const [
+                      Expanded(
+                          child: CustomHomeButtons(
+                              color: AppColors.orangeShadeColor,
+                              title: 'Active Runners',
+                              value: '12')),
+                      SizedBox(width: 10),
+                      Expanded(
+                          child: CustomHomeButtons(
+                              color: AppColors.appColor,
+                              title: 'Total Manifest',
+                              value: '12')),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  const TrackManifestButton(),
+                  const SizedBox(height: 20),
+                  ReusableContainer(
+                    color: AppColors.greyColorShade01,
+                    height: height * 0.13,
+                    child: Center(
+                      child: CustomTile(
+                        tileColor: null,
+                        trailingIcon: true,
+                        color: AppColors.appColor,
+                        leadingIcon: null,
+                        textStyle: textStyle05,
+                        actionIcon: Icons.keyboard_arrow_down_outlined,
+                        title: "View All Runners",
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ViewTrackedDoc(
+                                        docAgent: 'Agent 1',
+                                        docRunner: 'Runner 1',
+                                        docId: 'Runner 1',
+                                      )));
+                        },
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.fromLTRB(10, 0, 0, 10),
-            child: Text("Documents", style: textStyle08),
-          ),
-          // const SizedBox(height:10),
-          GridWidget(height: height)
-        ]));
+        ));
   }
 }

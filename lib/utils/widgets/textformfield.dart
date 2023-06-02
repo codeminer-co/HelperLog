@@ -29,13 +29,13 @@ final String hinttext;
           onChanged: onChanged,
           decoration: InputDecoration(
             hintText: hinttext,
-            hintStyle: TextStyle(color:AppColors.appColor),
+            hintStyle: TextStyle(color:AppColors.greyColor),
             suffixIcon: suffixicon,
-            enabledBorder: InputBorder.none,  contentPadding: EdgeInsets.symmetric(vertical: 10),
+            enabledBorder: InputBorder.none,  contentPadding: EdgeInsets.symmetric(vertical: 20),
             focusedBorder: InputBorder.none,
             disabledBorder: InputBorder.none,
             errorBorder: InputBorder.none,
-            prefixIcon: Icon(icon,color:AppColors.appColor),
+            prefixIcon: Icon(icon,color:AppColors.greyColor),
           ),textAlignVertical: TextAlignVertical.center,
           style: textStyle03,
         ));

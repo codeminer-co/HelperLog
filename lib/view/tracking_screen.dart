@@ -21,9 +21,9 @@ class _TrackingScreenState extends State<TrackingScreen> {
 
     return Scaffold(
         appBar: CustomAppBar(
-          appBarHeight: 60,
+          appBarHeight: 80,
           actionIcons: Icons.person,
-          leadingIcon: Icons.menu,
+          leadingIcon: null,
           onPressedLeadIcon: () {},
           onPressedActionIcon: () {},
           title: "",

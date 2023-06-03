@@ -74,7 +74,7 @@ class Home extends StatelessWidget {
                         color: AppColors.appColor,
                         leadingIcon: null,
                         textStyle: textStyle05,
-                        actionIcon: Icons.keyboard_arrow_down_outlined,
+                        actionIcon: Icons.arrow_drop_down,
                         title: "View All Runners",
                         onPressed: () {
                           Navigator.push(

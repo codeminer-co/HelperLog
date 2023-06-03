@@ -22,7 +22,7 @@ class ViewTrackedDoc extends StatelessWidget {
         appBar: CustomAppBar(
           appBarHeight: 80,
           actionIcons: Icons.person,
-          leadingIcon: Icons.menu,
+          leadingIcon: null,
           onPressedLeadIcon: () {},
           onPressedActionIcon: () {},
           title: "" ,

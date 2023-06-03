@@ -29,7 +29,7 @@ class CustomTile extends StatelessWidget {
 if (trailingIcon) {
       if (actionIcon != null) {
         trailingWidget = IconButton(
-          icon: Icon(actionIcon!, color: color!, size: 32),
+          icon: Icon(actionIcon!, color: color!, size: 24),
           onPressed: onPressed,
         );
       } else {
@@ -38,15 +38,43 @@ if (trailingIcon) {
     } else {
       trailingWidget = SizedBox();
     }
-    return ListTile(tileColor: tileColor,
-      title: Text(title!, style: textStyle),
-      leading: Icon(
-        leadingIcon,
-        color: color,
-        size: 24,
-      ),
-       trailing:   trailingWidget,
+    return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [     if (leadingIcon != null)
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(16,0,0,0.0),
+                            child: Icon(
+                              leadingIcon,
+                              size: 24,
+                              color: color,
+                            ),
+                          ),
+                           
+                            if (leadingIcon == null) SizedBox(width: 16), // Add left padding for the title
+                          Padding(
+                             padding: EdgeInsets.only(left: leadingIcon != null ? 10 : 10, right: 16),
+                            child: Text(
+                              title!,
+                              style: textStyle
+                            ),
+                          ),
+                          Spacer(), // To push the action icon to the right edge of the row
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0,0,16,0.0),
+                            child: trailingWidget,
+                          ),
+                        ],
+                      );
+    // ListTile(tileColor: tileColor,
+    //   title: Text(title!, style: textStyle),
+    //   leading: Icon(
+    //     leadingIcon,
+    //     color: color,
+    //     size: 24,
+    //   ),
+    //    trailing:   trailingWidget,
                  
-    );
+    // );
   }
 }

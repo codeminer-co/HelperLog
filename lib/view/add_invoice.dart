@@ -1,0 +1,133 @@
+import 'package:flutter/material.dart';
+import 'package:helperlog/utils/constants.dart';
+import 'package:helperlog/utils/widgets/appbar.dart';
+import 'package:helperlog/utils/widgets/custom_tile.dart';
+import 'package:helperlog/utils/widgets/reusableContainer.dart';
+import 'package:helperlog/utils/widgets/textformfield.dart';
+import 'package:helperlog/view/view_tracked_doc.dart';
+
+class AddInvoice extends StatefulWidget {
+  const AddInvoice({super.key});
+
+  @override
+  State<AddInvoice> createState() => _AddInvoiceState();
+}
+
+class _AddInvoiceState extends State<AddInvoice> {
+  @override
+  Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    return Scaffold(
+      appBar: CustomAppBar(
+        appBarHeight: 80,
+        actionIcons: Icons.person,
+        leadingIcon: null,
+        onPressedLeadIcon: () {},
+        onPressedActionIcon: () {},
+        title: "",
+      ),
+      body: SafeArea(
+          child: SingleChildScrollView(
+              child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 10),
+              Text(
+                "Add New Invoice",
+                style: textStyle14,
+              ),
+              const SizedBox(height: 20),
+              Text("Fill the following details and invoice ",
+                  textAlign: TextAlign.center, style: textStyle12),
+              SizedBox(height: 20),
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        MyTextFormField(
+                          decColor: AppColors.greyColorShade,
+                          icon: null,
+                          controller: null,
+                          suffixicon: null,
+                          myObscureText: false,
+                          hinttext: 'Invoice number',
+                          onChanged: (value) {},
+                        ),
+                        SizedBox(height: 10),
+                        MyTextFormField(
+                          decColor: AppColors.greyColorShade,
+                          icon: null,
+                          controller: null,
+                          suffixicon: null,
+                          myObscureText: false,
+                          hinttext: 'Date',
+                          onChanged: (value) {},
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        MyTextFormField(
+                          decColor: AppColors.greyColorShade,
+                          icon: null,
+                          controller: null,
+                          suffixicon: null,
+                          myObscureText: false,
+                          hinttext: 'Quantity',
+                          onChanged: (value) {},
+                        ),
+                        SizedBox(height: 10),
+                        MyTextFormField(
+                          decColor: AppColors.greyColorShade,
+                          icon: null,
+                          controller: null,
+                          suffixicon: null,
+                          myObscureText: false,
+                          hinttext: 'Due date',
+                          onChanged: (value) {},
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              const SizedBox(height: 20),
+              ReusableContainer(
+                height: height * 0.1,
+                color: AppColors.appColor,
+                child: CustomTile(
+                  tileColor: null,
+                  trailingIcon: true,
+                  actionIcon: Icons.add,
+                  color: AppColors.whiteColor,
+                  leadingIcon: null,
+                  textStyle: textStyle09,
+                  title: "Add new invoice",
+                  onPressed: () {},
+                ),
+              ),
+            ],
+          ),
+        ),
+      ))),
+      // floatingActionButton: FloatingActionButton(
+      //     onPressed: () { Navigator.push(
+      //                       context,
+      //                       MaterialPageRoute(
+      //                           builder: (context) => AddInvoice())); }, backgroundColor: AppColors.orangeShadeColor,
+      //     foregroundColor: AppColors.whiteColor,
+      //     child:
+      //    Icon(Icons.add, size: 24),
+
+      //   ),
+    );
+  }
+}

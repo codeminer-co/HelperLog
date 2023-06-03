@@ -104,3 +104,9 @@ final textStyle13 = TextStyle(
   fontSize: 20,
   color: AppColors.appColor,
 );
+final textStyle14 = TextStyle(
+  fontFamily: 'Roboto',
+  fontSize: 25,
+  fontWeight: FontWeight.w700,
+  color: AppColors.appColor,
+);

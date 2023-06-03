@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/view/add_manifest.dart';
 import 'package:helperlog/view/home_screen.dart';
-import 'package:helperlog/view/profile_screen.dart';
+import 'package:helperlog/view/setting_screen.dart';
 
-import 'package:helperlog/view/settings.dart';
+import 'package:helperlog/view/profile_screen.dart';
 import 'package:helperlog/view/tracking_screen.dart';
 
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
@@ -39,7 +39,7 @@ int _selectedIndex = 0;
     const Home(),
     const AddManifest(),
     const TrackingScreen(),
-    const Profile(),
+    const Settings(),
   ];
     return Scaffold(
       body: screens[_selectedIndex],

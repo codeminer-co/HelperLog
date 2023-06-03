@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/widgets/drawer_list.dart';
-import 'package:helperlog/view/settings.dart';
+import 'package:helperlog/view/setting_screen.dart';
 import 'package:helperlog/view/tracking_screen.dart';
 
 class MyDrawer extends StatelessWidget {

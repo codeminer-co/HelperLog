@@ -1,9 +1,8 @@
-class PurchaseOrder {
-  final String orderNumber;
-  final String billingInfo;
-final String supplierNumber;
-final String title;
+class PurchaseOrderModel {
+  final int id;
+  
+final String poName;
 
-  PurchaseOrder({required this.orderNumber,required this.billingInfo,required this.supplierNumber,required this.title});
+  PurchaseOrderModel(this.id, this.poName);
 
 }

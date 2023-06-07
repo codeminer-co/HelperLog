@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/widgets/appbar.dart';
 import 'package:helperlog/utils/widgets/custom_button.dart';
+import 'package:helperlog/view/invoice_lists.dart';
 import 'package:helperlog/view/tracking_screen.dart';
 
 class ViewTrackedDoc extends StatelessWidget {
@@ -16,7 +17,7 @@ class ViewTrackedDoc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   double height = MediaQuery.of(context).size.height;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
         backgroundColor: AppColors.whiteColor,
         appBar: CustomAppBar(
@@ -25,7 +26,7 @@ class ViewTrackedDoc extends StatelessWidget {
           leadingIcon: null,
           onPressedLeadIcon: () {},
           onPressedActionIcon: () {},
-          title: "" ,
+          title: "",
         ),
         body: SafeArea(
           child: SingleChildScrollView(
@@ -71,8 +72,8 @@ class ViewTrackedDoc extends StatelessWidget {
                         ),
                       ],
                     )),
-             Padding(
-                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
                   child: Align(
                       alignment: Alignment.topLeft,
                       child: Text("Document Details:", style: textStyle10)),
@@ -80,7 +81,7 @@ class ViewTrackedDoc extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                   child: CustomButton(
-                    height:height * 0.1,
+                      height: height * 0.1,
                       color: AppColors.appColor,
                       onPressed: () {},
                       text: 'Purchase order 1',
@@ -88,7 +89,8 @@ class ViewTrackedDoc extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
-                  child: CustomButton(   height:height * 0.1,
+                  child: CustomButton(
+                      height: height * 0.1,
                       color: AppColors.appColor,
                       onPressed: () {},
                       text: 'Purchase order 2',
@@ -96,12 +98,15 @@ class ViewTrackedDoc extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
-                  child: CustomButton(   height:height * 0.1,
+                  child: CustomButton(
+                      height: height * 0.1,
                       color: AppColors.appColor,
-                      onPressed: () { Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>TrackingScreen()));},
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const InvoiceLists()));
+                      },
                       text: 'Purchase order 3',
                       textColor: textStyle09),
                 )

@@ -9,24 +9,21 @@ class AppColors {
   static const Color yellowColorshade = Color.fromARGB(255, 221, 206, 73);
   static const Color greyColor = Colors.grey;
   static Color greyColorShade = const Color(0xff8592a1).withOpacity(0.1);
-
+static Color blueColor =Colors.blue;
   static Color greyColorShade01 = const Color.fromARGB(255, 249, 248, 248);
   static Color greyColorShade02 = Color.fromARGB(255, 126, 123, 123);
-  static const mySwatch = MaterialColor(
-    0xFF00796B,
-    <int, Color>{
-      50: Color(0xFFE0F2F1),
-      100: Color(0xFFB2DFDB),
-      200: Color(0xFF80CBC4),
-      300: Color(0xFF4DB6AC),
-      400: Color(0xFF26A69A),
-      500: Color(0xFF009688),
-      600: Color(0xFF00897B),
-      700: Color(0xFF00796B),
-      800: Color(0xFF00695C),
-      900: Color(0xFF004D40),
-    },
-  );
+  static const mySwatch =   MaterialColor(0xFF114f64, <int, Color>{
+    50: Color(0xFF114f64),
+    100: Color(0xFF114f64),
+    200: Color(0xFF114f64),
+    300: Color(0xFF114f64),
+    400: Color(0xFF114f64),
+    500: Color(0xFF114f64),
+    600: Color(0xFF114f64),
+    700: Color(0xFF114f64),
+    800: Color(0xFF114f64),
+    900: Color(0xFF114f64),
+  });
 }
 
 const textStyle01 = TextStyle(

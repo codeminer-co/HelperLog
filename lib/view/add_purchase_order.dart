@@ -15,6 +15,7 @@ class AddPurchaseOrder extends StatefulWidget {
 }
 
 class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
+  final TextEditingController _poNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -51,14 +52,20 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
                   alignment: Alignment.topLeft,
                   child: Text("Purchase order name", style: textStyle10)),
               const SizedBox(height: 10),
-              MyTextFormField(
-                decColor: AppColors.greyColorShade,
-                icon: null,
-                controller: null,
-                suffixicon: null,
-                myObscureText: false,
-                hinttext: 'Enter Purchase order name',
-                onChanged: (value) {},
+              ReusableContainer(
+               height: height * 0.1,
+                color: AppColors.whiteColor,
+                child: Center(
+                  child: MyTextFormField(
+                   
+                    icon: null,
+                    controller:  _poNameController,
+                    suffixicon: null,
+                    myObscureText: false,
+                    hinttext: 'Enter Purchase order name',
+                    onChanged: (value) {},
+                  ),
+                ),
               ),
               const SizedBox(height: 10),
               Align(
@@ -101,16 +108,15 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
           ),
         ),
       ))),
-      // floatingActionButton: FloatingActionButton(
-      //     onPressed: () { Navigator.push(
-      //                       context,
-      //                       MaterialPageRoute(
-      //                           builder: (context) => AddPurchaseOrder())); }, backgroundColor: AppColors.orangeShadeColor,
-      //     foregroundColor: AppColors.whiteColor,
-      //     child:
-      //    Icon(Icons.add, size: 24),
-
-      //   ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const AddInvoice()));
+        },
+        backgroundColor: AppColors.appColor,
+        foregroundColor: AppColors.whiteColor,
+        child: const Icon(Icons.receipt, size: 24,),
+      ),
     );
   }
 }

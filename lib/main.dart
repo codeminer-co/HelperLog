@@ -3,6 +3,7 @@ import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/view/bottom_navigation.dart';
 import 'package:helperlog/view/home_screen.dart';
 import 'package:helperlog/view/login_screen.dart';
+import 'package:helperlog/view/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'HelperLog',
       theme: ThemeData(primarySwatch: AppColors.mySwatch),
-      home:  BottomNavBar(),
+      home: const SplashScreen(),
     );
   }
 }

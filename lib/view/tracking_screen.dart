@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/widgets/appbar.dart';
 import 'package:helperlog/utils/widgets/custom_button.dart';
+import 'package:helperlog/utils/widgets/reusableContainer.dart';
 
 import 'package:helperlog/utils/widgets/textformfield.dart';
-import 'package:helperlog/view/home_screen.dart';
-
 
 class TrackingScreen extends StatefulWidget {
   const TrackingScreen({super.key});
@@ -44,25 +43,25 @@ class _TrackingScreenState extends State<TrackingScreen> {
                     const SizedBox(height: 40),
                     Text("Enter Tracking id", style: textStyle11),
                     const SizedBox(height: 20),
-                    MyTextFormField(
-                      decColor: AppColors.greyColorShade,
-                      icon: Icons.fire_truck,
-                      controller: null,
-                      suffixicon: null,
-                      myObscureText: false,
-                      hinttext: 'Tracking id here',
-                      onChanged: (value) {},
+                    ReusableContainer(
+                      height: height * 0.1,
+                      color: AppColors.whiteColor,
+                      child: Center(
+                        child: MyTextFormField(
+                          
+                          icon: Icons.fire_truck,
+                          controller: null,
+                          suffixicon: null,
+                          myObscureText: false,
+                          hinttext: 'Tracking id here',
+                          onChanged: (value) {},
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 20),
                     CustomButton(
                       color: AppColors.appColor,
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Home())); 
-                                
-                      },
+                      onPressed: () {},
                       text: 'Track',
                       textColor: textStyle09,
                       height: height * 0.07,

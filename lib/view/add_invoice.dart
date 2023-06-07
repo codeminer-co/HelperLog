@@ -4,6 +4,7 @@ import 'package:helperlog/utils/widgets/appbar.dart';
 import 'package:helperlog/utils/widgets/custom_tile.dart';
 import 'package:helperlog/utils/widgets/reusableContainer.dart';
 import 'package:helperlog/utils/widgets/textformfield.dart';
+import 'package:helperlog/view/add_new_invoice.dart';
 import 'package:helperlog/view/view_tracked_doc.dart';
 
 class AddInvoice extends StatefulWidget {
@@ -14,6 +15,25 @@ class AddInvoice extends StatefulWidget {
 }
 
 class _AddInvoiceState extends State<AddInvoice> {
+   final TextEditingController _invoiceNoController = TextEditingController();
+final TextEditingController _quantityController = TextEditingController();
+final TextEditingController _dateController = TextEditingController();
+final TextEditingController _dueDateController = TextEditingController();
+Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2100),
+    );
+    if (picked != null) {
+      setState(() {
+        _dateController.text =
+            picked.toString(); // You can format the date here
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -35,7 +55,7 @@ class _AddInvoiceState extends State<AddInvoice> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 "Add New Invoice",
                 style: textStyle14,
@@ -43,56 +63,86 @@ class _AddInvoiceState extends State<AddInvoice> {
               const SizedBox(height: 20),
               Text("Fill the following details and invoice ",
                   textAlign: TextAlign.center, style: textStyle12),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   Expanded(
                     child: Column(
                       children: [
-                        MyTextFormField(
-                          decColor: AppColors.greyColorShade,
-                          icon: null,
-                          controller: null,
-                          suffixicon: null,
-                          myObscureText: false,
-                          hinttext: 'Invoice number',
-                          onChanged: (value) {},
+                        ReusableContainer(
+                          height: height * 0.1,
+                          color: AppColors.whiteColor,
+                          child: Center(
+                            child: MyTextFormField(
+                            
+                              icon: null,
+                              controller:_invoiceNoController,
+                              suffixicon: null,
+                              myObscureText: false,
+                              hinttext: 'Invoice number',
+                              onChanged: (value) {},
+                            ),
+                          ),
                         ),
-                        SizedBox(height: 10),
-                        MyTextFormField(
-                          decColor: AppColors.greyColorShade,
-                          icon: null,
-                          controller: null,
-                          suffixicon: null,
-                          myObscureText: false,
-                          hinttext: 'Date',
-                          onChanged: (value) {},
+                        const SizedBox(height: 10),
+                        ReusableContainer(
+                          height: height * 0.1,
+                         color: AppColors.whiteColor,
+                          child: Center(
+                            child: MyTextFormField(
+                              
+                              icon: null,
+                              controller: _dateController,
+                              suffixicon: IconButton(
+                                icon: Icon(Icons.add_alarm),
+                                onPressed: () => _selectDate(context),
+                              ),
+                              myObscureText: false,
+                             hinttext: 'Date',
+                              onChanged: (value) {},
+                            ),
+                          ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Expanded(
                     child: Column(
                       children: [
-                        MyTextFormField(
-                          decColor: AppColors.greyColorShade,
-                          icon: null,
-                          controller: null,
-                          suffixicon: null,
-                          myObscureText: false,
-                          hinttext: 'Quantity',
-                          onChanged: (value) {},
+                        ReusableContainer(
+                          height: height * 0.1,
+                          color: AppColors.whiteColor,
+                          child: Center(
+                            child: MyTextFormField(
+                              
+                              icon: null,
+                              controller:_quantityController,
+                              suffixicon: null,
+                              myObscureText: false,
+                              hinttext: 'Quantity',
+                              onChanged: (value) {},
+                            ),
+                          ),
                         ),
-                        SizedBox(height: 10),
-                        MyTextFormField(
-                          decColor: AppColors.greyColorShade,
-                          icon: null,
-                          controller: null,
-                          suffixicon: null,
-                          myObscureText: false,
-                          hinttext: 'Due date',
-                          onChanged: (value) {},
+                        const SizedBox(height: 10),
+                        ReusableContainer(
+                          height: height * 0.1,
+                          color: AppColors.whiteColor,
+                          child: Center(
+                            child: MyTextFormField(
+                            
+                              icon: null,
+                              controller: _dueDateController,
+                              suffixicon: IconButton(
+                                icon: Icon(Icons.add_alarm),
+                                onPressed: () => _selectDate(context),
+                              ),
+                              myObscureText: false,
+                              hinttext: 'Due date',
+                              onChanged: (value) {},
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -111,7 +161,12 @@ class _AddInvoiceState extends State<AddInvoice> {
                   leadingIcon: null,
                   textStyle: textStyle09,
                   title: "Add new invoice",
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AddNewInvoice()));
+                  },
                 ),
               ),
             ],

@@ -7,19 +7,33 @@ import 'package:helperlog/utils/widgets/reusableContainer.dart';
 import 'package:helperlog/utils/widgets/trackmanifest_btn.dart';
 import 'package:helperlog/view/view_tracked_doc.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void openDrawer() {
+    _scaffoldKey.currentState?.openDrawer();
+  }
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
+        key: _scaffoldKey,
         backgroundColor: AppColors.whiteColor,
         appBar: CustomAppBar(
             appBarHeight: 80,
             actionIcons: Icons.person,
             leadingIcon: Icons.menu,
-            onPressedLeadIcon: () {},
+            onPressedLeadIcon: () {
+              _scaffoldKey.currentState?.openDrawer();
+            },
             onPressedActionIcon: () {},
             title: "Welcome, Agent"),
         // appBar:AppBar(),
@@ -83,7 +97,7 @@ class Home extends StatelessWidget {
                                   builder: (context) => const ViewTrackedDoc(
                                         docAgent: 'Agent 1',
                                         docRunner: 'Runner 1',
-                                        docId: 'Runner 1',
+                                        docId: '2345',
                                       )));
                         },
                       ),

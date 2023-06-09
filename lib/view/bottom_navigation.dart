@@ -29,7 +29,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       const Home(),
       const AddManifest(),
       const TrackingScreen(),
-      const Settings(),
+       Settings(),
     ];
     return Scaffold(
       body: screens[_selectedIndex],

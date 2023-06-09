@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/widgets/appbar.dart';
 import 'package:helperlog/utils/widgets/custom_tile.dart';
+import 'package:helperlog/utils/widgets/drawer.dart';
 import 'package:helperlog/utils/widgets/reusableContainer.dart';
 
 class Settings extends StatelessWidget {
-  const Settings({super.key});
+  final GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
+   Settings({super.key});
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return Scaffold(
+    return Scaffold( key: globalKey,
         backgroundColor: AppColors.whiteColor,
-      
+       drawer: const MyDrawer(),
         body: SingleChildScrollView(
             child: Column(children: [
           Container(
@@ -34,7 +36,12 @@ class Settings extends StatelessWidget {
                     appBarHeight: 80,
                     actionIcons: Icons.person,
                     leadingIcon: Icons.menu,
-                    onPressedLeadIcon: () {},
+
+
+
+                    onPressedLeadIcon: () {
+           globalKey.currentState?.openDrawer();
+            },
                     onPressedActionIcon: () {},
                     title: "",
                   ),

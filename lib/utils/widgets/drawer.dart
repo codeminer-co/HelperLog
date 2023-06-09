@@ -3,6 +3,7 @@ import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/widgets/drawer_list.dart';
 import 'package:helperlog/view/setting_screen.dart';
 import 'package:helperlog/view/tracking_screen.dart';
+import 'package:helperlog/view/view_tracked_doc.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -42,6 +43,8 @@ class MyDrawer extends StatelessWidget {
               icon: Icons.file_copy,
               onPressed: () {
                 Navigator.of(context).pop();
+                 Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => ViewTrackedDoc(docAgent: 'Doc Agent', docRunner: 'Doc Runner', docId: '4564',)));
               }),
 
           DrawerList(

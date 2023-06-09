@@ -3,6 +3,7 @@ import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/widgets/appbar.dart';
 import 'package:helperlog/utils/widgets/custom_tile.dart';
 import 'package:helperlog/utils/widgets/customhome_btns.dart';
+import 'package:helperlog/utils/widgets/drawer.dart';
 import 'package:helperlog/utils/widgets/reusableContainer.dart';
 import 'package:helperlog/utils/widgets/trackmanifest_btn.dart';
 import 'package:helperlog/view/view_tracked_doc.dart';
@@ -15,29 +16,23 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
-  void openDrawer() {
-    _scaffoldKey.currentState?.openDrawer();
-  }
-
+  final GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-        key: _scaffoldKey,
+        key: globalKey,
         backgroundColor: AppColors.whiteColor,
         appBar: CustomAppBar(
             appBarHeight: 80,
             actionIcons: Icons.person,
             leadingIcon: Icons.menu,
             onPressedLeadIcon: () {
-              _scaffoldKey.currentState?.openDrawer();
+           globalKey.currentState?.openDrawer();
             },
             onPressedActionIcon: () {},
             title: "Welcome, Agent"),
-        // appBar:AppBar(),
-        // drawer: const MyDrawer(),
+        drawer: const MyDrawer(),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Padding(

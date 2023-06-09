@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/widgets/appbar.dart';
 import 'package:helperlog/utils/widgets/custom_button.dart';
+import 'package:helperlog/utils/widgets/drawer.dart';
 import 'package:helperlog/utils/widgets/reusableContainer.dart';
 
 import 'package:helperlog/utils/widgets/textformfield.dart';
@@ -14,19 +15,24 @@ class TrackingScreen extends StatefulWidget {
 }
 
 class _TrackingScreenState extends State<TrackingScreen> {
+  final GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+        key: globalKey,
+        backgroundColor: AppColors.whiteColor,
         appBar: CustomAppBar(
-          appBarHeight: 80,
-          actionIcons: Icons.person,
-          leadingIcon: null,
-          onPressedLeadIcon: () {},
-          onPressedActionIcon: () {},
-          title: "",
-        ),
+            appBarHeight: 80,
+            actionIcons: Icons.person,
+            leadingIcon: Icons.menu,
+            onPressedLeadIcon: () {
+           globalKey.currentState?.openDrawer();
+            },
+            onPressedActionIcon: () {},
+            title: "Welcome, Agent"),
+        drawer: const MyDrawer(),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Padding(

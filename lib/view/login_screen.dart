@@ -45,10 +45,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: 10),
                 ReusableContainer(
                   color: AppColors.whiteColor,
-                  height: height * 0.1,
+                  height: height * 0.09,
                   child: Center(
                     child: MyTextFormField(
-                      
                       icon: Icons.email,
                       controller: emailController,
                       suffixicon: null,
@@ -59,14 +58,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 15,
                 ),
                 ReusableContainer(
-                  height: height * 0.1,
+                  height: height * 0.09,
                   color: AppColors.whiteColor,
                   child: Center(
                     child: MyTextFormField(
-                    
                       myObscureText: !_obscureText,
                       controller: passController,
                       suffixicon: IconButton(
@@ -103,7 +101,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 30,
                 ),
                 CustomButton(
-                  height: height * 0.1,
                   color: AppColors.appColor,
                   text: 'Login',
                   onPressed: () {
@@ -144,8 +141,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 BuildAuthButton(
                     onPressed: () {},
-                    height: height,
-                    width: width,
                     btnColor: AppColors.whiteColor,
                     textStyle: textStyle03,
                     text: "continue with Google",
@@ -155,8 +150,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 BuildAuthButton(
                     onPressed: () {},
-                    height: height,
-                    width: width,
                     btnColor: AppColors.blueColor,
                     textStyle: textStyle04,
                     text: "continue with Facebook",
@@ -166,8 +159,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 BuildAuthButton(
                     onPressed: () {},
-                    height: height,
-                    width: width,
                     btnColor: AppColors.blackColor,
                     textStyle: textStyle04,
                     text: "continue with Apple",

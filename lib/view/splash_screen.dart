@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 CustomButton(
                   color: AppColors.whiteColor,
-                  height: height * 0.1,
+                 
                   onPressed: () {
                     Navigator.pushReplacement(
                         context,

@@ -81,7 +81,7 @@ class ViewTrackedDoc extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                   child: CustomButton(
-                      height: height * 0.1,
+                 
                       color: AppColors.appColor,
                       onPressed: () {},
                       text: 'Purchase order 1',
@@ -90,7 +90,7 @@ class ViewTrackedDoc extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                   child: CustomButton(
-                      height: height * 0.1,
+                 
                       color: AppColors.appColor,
                       onPressed: () {},
                       text: 'Purchase order 2',
@@ -99,7 +99,7 @@ class ViewTrackedDoc extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                   child: CustomButton(
-                      height: height * 0.1,
+                     
                       color: AppColors.appColor,
                       onPressed: () {
                         Navigator.pushReplacement(

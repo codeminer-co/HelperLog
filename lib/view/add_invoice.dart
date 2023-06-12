@@ -5,7 +5,7 @@ import 'package:helperlog/utils/widgets/custom_tile.dart';
 import 'package:helperlog/utils/widgets/reusableContainer.dart';
 import 'package:helperlog/utils/widgets/textformfield.dart';
 import 'package:helperlog/view/add_new_invoice.dart';
-import 'package:helperlog/view/view_tracked_doc.dart';
+
 
 class AddInvoice extends StatefulWidget {
   const AddInvoice({super.key});
@@ -29,6 +29,12 @@ Future<void> _selectDate(BuildContext context) async {
     if (picked != null) {
       setState(() {
         _dateController.text =
+            picked.toString(); // You can format the date here
+      });
+    }
+     if (picked != null) {
+      setState(() {
+        _dueDateController.text =
             picked.toString(); // You can format the date here
       });
     }
@@ -70,7 +76,7 @@ Future<void> _selectDate(BuildContext context) async {
                     child: Column(
                       children: [
                         ReusableContainer(
-                          height: height * 0.1,
+                          height: height * 0.09,
                           color: AppColors.whiteColor,
                           child: Center(
                             child: MyTextFormField(
@@ -86,7 +92,7 @@ Future<void> _selectDate(BuildContext context) async {
                         ),
                         const SizedBox(height: 10),
                         ReusableContainer(
-                          height: height * 0.1,
+                          height: height * 0.09,
                          color: AppColors.whiteColor,
                           child: Center(
                             child: MyTextFormField(
@@ -94,7 +100,7 @@ Future<void> _selectDate(BuildContext context) async {
                               icon: null,
                               controller: _dateController,
                               suffixicon: IconButton(
-                                icon: Icon(Icons.add_alarm),
+                                icon: const Icon(Icons.add_alarm),
                                 onPressed: () => _selectDate(context),
                               ),
                               myObscureText: false,
@@ -111,7 +117,7 @@ Future<void> _selectDate(BuildContext context) async {
                     child: Column(
                       children: [
                         ReusableContainer(
-                          height: height * 0.1,
+                          height: height * 0.09,
                           color: AppColors.whiteColor,
                           child: Center(
                             child: MyTextFormField(
@@ -126,24 +132,24 @@ Future<void> _selectDate(BuildContext context) async {
                           ),
                         ),
                         const SizedBox(height: 10),
-                        ReusableContainer(
-                          height: height * 0.1,
-                          color: AppColors.whiteColor,
+                         ReusableContainer(
+                          height: height * 0.09,
+                         color: AppColors.whiteColor,
                           child: Center(
                             child: MyTextFormField(
-                            
+                              
                               icon: null,
                               controller: _dueDateController,
                               suffixicon: IconButton(
-                                icon: Icon(Icons.add_alarm),
+                                icon: const Icon(Icons.add_alarm),
                                 onPressed: () => _selectDate(context),
                               ),
                               myObscureText: false,
-                              hinttext: 'Due date',
+                             hinttext: 'Due Date',
                               onChanged: (value) {},
                             ),
                           ),
-                        ),
+                        ),  
                       ],
                     ),
                   )
@@ -151,7 +157,7 @@ Future<void> _selectDate(BuildContext context) async {
               ),
               const SizedBox(height: 20),
               ReusableContainer(
-                height: height * 0.1,
+                height: height * 0.09,
                 color: AppColors.appColor,
                 child: CustomTile(
                   tileColor: null,
@@ -159,13 +165,13 @@ Future<void> _selectDate(BuildContext context) async {
                   actionIcon: Icons.add,
                   color: AppColors.whiteColor,
                   leadingIcon: null,
-                  textStyle: textStyle09,
+                  textStyle: textStyle04,
                   title: "Add new invoice",
                   onPressed: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => AddNewInvoice()));
+                            builder: (context) => const AddNewInvoice()));
                   },
                 ),
               ),

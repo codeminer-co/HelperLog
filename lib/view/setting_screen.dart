@@ -120,7 +120,7 @@ class Settings extends StatelessWidget {
                         textStyle: textStyle09,
                         title: "Language",
                         onPressed: () {},
-                      ),SizedBox(height:10),
+                      ),const SizedBox(height:10),
                       CustomTile(
                         tileColor: null,
                         trailingIcon: true,

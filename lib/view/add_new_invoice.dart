@@ -16,7 +16,6 @@ class _AddNewInvoiceState extends State<AddNewInvoice> {
   List<Widget> textFields = [];
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: CustomAppBar(
         appBarHeight: 80,
@@ -40,7 +39,6 @@ class _AddNewInvoiceState extends State<AddNewInvoice> {
                 text: 'Add Custom Fields',
                 onPressed: addTextField,
                 textColor: textStyle04,
-                height: height * 0.1,
               ),
             ]),
           ),
@@ -74,7 +72,9 @@ class _AddNewInvoiceState extends State<AddNewInvoice> {
 
     return Column(
       children: [
-        ReusableContainer(color: AppColors.whiteColor, height:height * 0.1,
+        ReusableContainer(
+          color: AppColors.whiteColor,
+          height: height * 0.09,
           child: Center(
             child: MyTextFormField(
               controller: controller,
@@ -84,7 +84,7 @@ class _AddNewInvoiceState extends State<AddNewInvoice> {
                 icon: const Icon(Icons.delete),
                 onPressed: () => removeTextField(textFields.length - 1),
               ),
-                  
+
               //  controller: _orderNumberController,
             ),
           ),

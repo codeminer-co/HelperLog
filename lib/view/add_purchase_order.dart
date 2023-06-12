@@ -5,7 +5,6 @@ import 'package:helperlog/utils/widgets/custom_tile.dart';
 import 'package:helperlog/utils/widgets/reusableContainer.dart';
 import 'package:helperlog/utils/widgets/textformfield.dart';
 import 'package:helperlog/view/add_invoice.dart';
-import 'package:helperlog/view/view_tracked_doc.dart';
 
 class AddPurchaseOrder extends StatefulWidget {
   const AddPurchaseOrder({super.key});
@@ -37,7 +36,7 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 "Add Purchase Order",
                 style: textStyle14,
@@ -47,19 +46,18 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
                   "Enter the details below and tap the add button to add the purchase order to the manifest",
                   textAlign: TextAlign.center,
                   style: textStyle12),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Align(
                   alignment: Alignment.topLeft,
                   child: Text("Purchase order name", style: textStyle10)),
               const SizedBox(height: 10),
               ReusableContainer(
-               height: height * 0.1,
+                height: height * 0.09,
                 color: AppColors.whiteColor,
                 child: Center(
                   child: MyTextFormField(
-                   
                     icon: null,
-                    controller:  _poNameController,
+                    controller: _poNameController,
                     suffixicon: null,
                     myObscureText: false,
                     hinttext: 'Enter Purchase order name',
@@ -73,7 +71,7 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
                   child: Text("Invoices", style: textStyle10)),
               const SizedBox(height: 10),
               ReusableContainer(
-                height: height * 0.1,
+                height: height * 0.09,
                 color: AppColors.appColor,
                 child: CustomTile(
                   tileColor: null,
@@ -81,14 +79,14 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
                   actionIcon: Icons.arrow_forward_ios,
                   color: AppColors.whiteColor,
                   leadingIcon: null,
-                  textStyle: textStyle09,
+                  textStyle: textStyle04,
                   title: "Invoice 1",
                   onPressed: () {},
                 ),
               ),
               const SizedBox(height: 10),
               ReusableContainer(
-                height: height * 0.1,
+                height: height * 0.09,
                 color: AppColors.appColor,
                 child: CustomTile(
                   tileColor: null,
@@ -96,11 +94,13 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
                   actionIcon: Icons.add,
                   color: AppColors.whiteColor,
                   leadingIcon: null,
-                  textStyle: textStyle09,
+                  textStyle: textStyle04,
                   title: "Add new invoice",
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => AddInvoice()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AddInvoice()));
                   },
                 ),
               ),
@@ -115,7 +115,10 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
         },
         backgroundColor: AppColors.appColor,
         foregroundColor: AppColors.whiteColor,
-        child: const Icon(Icons.receipt, size: 24,),
+        child: const Icon(
+          Icons.receipt,
+          size: 24,
+        ),
       ),
     );
   }

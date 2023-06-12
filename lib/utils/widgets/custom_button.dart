@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
-  final double height;
+  
   final VoidCallback onPressed;
   final Color color;
   final TextStyle textColor;
@@ -12,17 +12,17 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     required this.color,
     required this.textColor,
-    required this.height,
   });
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     return Material(
       color: color,
       elevation: 6,
       borderRadius: BorderRadius.circular(8),
       child: MaterialButton(
-          height: height,
+          height: height * 0.09,
           minWidth: double.infinity,
           onPressed: onPressed,
           child: Text(

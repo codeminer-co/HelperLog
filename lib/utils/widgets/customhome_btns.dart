@@ -21,18 +21,14 @@ class CustomHomeButtons extends StatelessWidget {
           color: color,
         ),
         child: Center(
-            child: Padding(
-          padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-          child: Column(
-            children: [
-              Text(title!, style: textStyle09), //white font , 20 size
-              Expanded(
-                child: Align(
-                    alignment: FractionalOffset.bottomCenter,
-                    child: Text(value!, style: textStyle09)),
-              ),
-            ],
-          ),
-        )));
+            child: Column(
+              mainAxisAlignment:MainAxisAlignment.center,
+             crossAxisAlignment:CrossAxisAlignment.center,
+              children: [
+                Text(title!, style: textStyle09),
+               const SizedBox(height:10 ,), //white font , 20 size
+                Text(value!, style: textStyle09),
+              ],
+            )));
   }
 }

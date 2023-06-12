@@ -1,11 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:helperlog/utils/constants.dart';
 
-
 class CustomTile extends StatelessWidget {
   final Color? color;
-    final Color? tileColor;
+  final Color? tileColor;
   final IconData? actionIcon;
   final bool trailingIcon;
   final TextStyle? textStyle;
@@ -19,53 +17,53 @@ class CustomTile extends StatelessWidget {
       this.leadingIcon,
       this.textStyle,
       required this.trailingIcon,
-      this.actionIcon, this.tileColor, required this.onPressed});
+      this.actionIcon,
+      this.tileColor,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-
-      double height = MediaQuery.of(context).size.height;
-       Widget trailingWidget;
-if (trailingIcon) {
+    Widget trailingWidget;
+    if (trailingIcon) {
       if (actionIcon != null) {
         trailingWidget = IconButton(
           icon: Icon(actionIcon!, color: color!, size: 24),
           onPressed: onPressed,
         );
       } else {
-        trailingWidget = Text("English", style: textStyle09);
+        trailingWidget = const Text("English", style: textStyle09);
       }
     } else {
-      trailingWidget = SizedBox();
+      trailingWidget = const SizedBox();
     }
     return Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [     if (leadingIcon != null)
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(16,0,0,0.0),
-                            child: Icon(
-                              leadingIcon,
-                              size: 24,
-                              color: color,
-                            ),
-                          ),
-                           
-                            if (leadingIcon == null) SizedBox(width: 16), // Add left padding for the title
-                          Padding(
-                             padding: EdgeInsets.only(left: leadingIcon != null ? 10 : 10, right: 16),
-                            child: Text(
-                              title!,
-                              style: textStyle
-                            ),
-                          ),
-                          Spacer(), // To push the action icon to the right edge of the row
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0,0,16,0.0),
-                            child: trailingWidget,
-                          ),
-                        ],
-                      );
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        if (leadingIcon != null)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 0, 0.0),
+            child: Icon(
+              leadingIcon,
+              size: 24,
+              color: color,
+            ),
+          ),
+
+        if (leadingIcon == null)
+          const SizedBox(width: 16), // Add left padding for the title
+        Padding(
+          padding:
+              EdgeInsets.only(left: leadingIcon != null ? 10 : 10, right: 16),
+          child: Text(title!, style: textStyle),
+        ),
+        const Spacer(), // To push the action icon to the right edge of the row
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 0, 16, 0.0),
+          child: trailingWidget,
+        ),
+      ],
+    );
     // ListTile(tileColor: tileColor,
     //   title: Text(title!, style: textStyle),
     //   leading: Icon(
@@ -74,7 +72,7 @@ if (trailingIcon) {
     //     size: 24,
     //   ),
     //    trailing:   trailingWidget,
-                 
+
     // );
   }
 }

@@ -28,7 +28,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
             actionIcons: Icons.person,
             leadingIcon: Icons.menu,
             onPressedLeadIcon: () {
-           globalKey.currentState?.openDrawer();
+              globalKey.currentState?.openDrawer();
             },
             onPressedActionIcon: () {},
             title: "Welcome, Agent"),
@@ -50,11 +50,10 @@ class _TrackingScreenState extends State<TrackingScreen> {
                     Text("Enter Tracking id", style: textStyle11),
                     const SizedBox(height: 20),
                     ReusableContainer(
-                      height: height * 0.1,
+                      height: height * 0.09,
                       color: AppColors.whiteColor,
                       child: Center(
                         child: MyTextFormField(
-                          
                           icon: Icons.fire_truck,
                           controller: null,
                           suffixicon: null,
@@ -64,13 +63,12 @@ class _TrackingScreenState extends State<TrackingScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 15),
                     CustomButton(
                       color: AppColors.appColor,
                       onPressed: () {},
                       text: 'Track',
-                      textColor: textStyle09,
-                      height: height * 0.07,
+                      textColor: textStyle04,
                     ),
                     const SizedBox(height: 20),
                     Text(

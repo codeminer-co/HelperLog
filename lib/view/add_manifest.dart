@@ -23,18 +23,18 @@ class _AddManifestState extends State<AddManifest> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-       key: globalKey,
-        backgroundColor: AppColors.whiteColor,
-        appBar: CustomAppBar(
-            appBarHeight: 80,
-            actionIcons: Icons.person,
-            leadingIcon: Icons.menu,
-            onPressedLeadIcon: () {
-           globalKey.currentState?.openDrawer();
-            },
-            onPressedActionIcon: () {},
-            title: "Welcome, Agent"),
-        drawer: const MyDrawer(),
+      key: globalKey,
+      backgroundColor: AppColors.whiteColor,
+      appBar: CustomAppBar(
+          appBarHeight: 80,
+          actionIcons: Icons.person,
+          leadingIcon: Icons.menu,
+          onPressedLeadIcon: () {
+            globalKey.currentState?.openDrawer();
+          },
+          onPressedActionIcon: () {},
+          title: "Welcome, Agent"),
+      drawer: const MyDrawer(),
       body: SafeArea(
           child: SingleChildScrollView(
               child: Padding(
@@ -55,11 +55,10 @@ class _AddManifestState extends State<AddManifest> {
                   child: Text("Manifest name", style: textStyle10)),
               const SizedBox(height: 10),
               ReusableContainer(
-                height: height * 0.1,
+                height: height * 0.09,
                 color: AppColors.whiteColor,
                 child: Center(
                   child: MyTextFormField(
-                   
                     icon: null,
                     controller: _manifestNameController,
                     suffixicon: null,
@@ -75,14 +74,14 @@ class _AddManifestState extends State<AddManifest> {
                   child: Text("Runner", style: textStyle10)),
               const SizedBox(height: 10),
               ReusableContainer(
-                height: height * 0.1,
+                height: height * 0.09,
                 color: AppColors.appColor,
                 child: Center(
                   child: DropdownButtonFormField<String>(
-                    value: _runner,
+                    value: _runner,dropdownColor: AppColors.appColor,
                     decoration: const InputDecoration(
-                      hintText: 'Runner',
-                      hintStyle: textStyle09,
+                      hintText: 'Select Runner',
+                      hintStyle: textStyle04,
                       contentPadding: EdgeInsets.fromLTRB(16, 12, 10, 12),
                       enabledBorder: InputBorder.none,
                       focusedBorder: InputBorder.none,
@@ -94,7 +93,7 @@ class _AddManifestState extends State<AddManifest> {
                               value: runner,
                               child: Text(
                                 runner,
-                                style: textStyle05,
+                                style: textStyle04,
                               ),
                             ))
                         .toList(),
@@ -112,7 +111,7 @@ class _AddManifestState extends State<AddManifest> {
                   child: Text("Purchase orders", style: textStyle10)),
               const SizedBox(height: 10),
               ReusableContainer(
-                height: height * 0.1,
+                height: height * 0.09,
                 color: AppColors.appColor,
                 child: CustomTile(
                   tileColor: null,
@@ -120,7 +119,7 @@ class _AddManifestState extends State<AddManifest> {
                   actionIcon: null,
                   color: AppColors.whiteColor,
                   leadingIcon: null,
-                  textStyle: textStyle09,
+                  textStyle: textStyle04,
                   title: "First Item",
                   onPressed: () {},
                 ),

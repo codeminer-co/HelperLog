@@ -30,7 +30,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (_isPasswordMatch) {
       // Passwords match, perform registration logic
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => BottomNavBar()));
+          context, MaterialPageRoute(builder: (context) => const BottomNavBar()));
     } else {
       // Passwords don't match, show error message
       ScaffoldMessenger.of(context).showSnackBar(
@@ -43,16 +43,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   @override
-  void dispose() {
-    passController.dispose();
-    confirmPassController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: CustomAppBar(
         appBarHeight: 120,
@@ -81,11 +74,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     // ),
 
                     ReusableContainer(
-                      height: height * 0.1,
+                      height: height * 0.09,
                       color: AppColors.whiteColor,
                       child: Center(
                         child: MyTextFormField(
-                         
                           icon: Icons.person,
                           controller: usernameController,
                           suffixicon: null,
@@ -100,11 +92,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
 
                     ReusableContainer(
-                      height: height * 0.1,
+                    height: height * 0.09,
                       color: AppColors.whiteColor,
                       child: Center(
                         child: MyTextFormField(
-                         
                           icon: Icons.email,
                           controller: emailController,
                           suffixicon: null,
@@ -119,11 +110,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
 
                     ReusableContainer(
-                      height: height * 0.1,
+                      height: height * 0.09,
                       color: AppColors.whiteColor,
                       child: Center(
                         child: MyTextFormField(
-                        
                           myObscureText: !_obscureText,
                           controller: passController,
                           suffixicon: IconButton(
@@ -149,11 +139,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
 
                     ReusableContainer(
-                      height: height * 0.1,
+                        height: height * 0.09,
                       color: AppColors.whiteColor,
                       child: Center(
                         child: MyTextFormField(
-                          
                           myObscureText: !_obscureText,
                           controller: confirmPassController,
                           onChanged: (value) {
@@ -182,33 +171,31 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: 15,
                     ),
                     ReusableContainer(
-                      height: height * 0.1,
+                       height: height * 0.09,
                       color: AppColors.whiteColor,
                       child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0.0),
-                          child: DropdownButtonFormField<String>(
-                            value: _gender,
-                            decoration: InputDecoration(
-                              hintText: 'Gender',
-                              hintStyle: textStyle06,
-                              enabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                            ),
-                            items: items
-                                .map((gender) => DropdownMenuItem<String>(
-                                      value: gender,
-                                      child: Text(gender, style: textStyle05),
-                                    ))
-                                .toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                _gender = value;
-                              });
-                            },
+                        child: DropdownButtonFormField<String>(
+                          value: _gender,
+                          decoration: InputDecoration(
+                            contentPadding: const EdgeInsets.fromLTRB(16, 12, 10, 12),
+                            hintText: 'Gender',
+                            hintStyle: textStyle06,
+                            enabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            disabledBorder: InputBorder.none,
+                            errorBorder: InputBorder.none,
                           ),
+                          items: items
+                              .map((gender) => DropdownMenuItem<String>(
+                                    value: gender,
+                                    child: Text(gender, style: textStyle05),
+                                  ))
+                              .toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              _gender = value;
+                            });
+                          },
                         ),
                       ),
                     ),
@@ -221,7 +208,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       text: 'Sign up',
                       onPressed: _onRegisterPressed,
                       textColor: textStyle04,
-                      height: height * 0.1,
                     ),
                     const SizedBox(
                       height: 15,

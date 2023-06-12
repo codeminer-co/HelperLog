@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BuildAuthButton extends StatelessWidget {
-  final double height;
-  final double width;
+  
+  
   final Color btnColor;
   final TextStyle textStyle;final VoidCallback onPressed;
   final String text;
@@ -10,8 +10,8 @@ class BuildAuthButton extends StatelessWidget {
 
   const BuildAuthButton(
       {super.key,
-      required this.height,
-      required this.width,
+      
+      
       required this.btnColor,
       required this.textStyle,
       required this.text,
@@ -19,6 +19,8 @@ class BuildAuthButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Container(
         decoration: BoxDecoration(
             boxShadow: const [
@@ -31,7 +33,7 @@ class BuildAuthButton extends StatelessWidget {
             ],
             color: btnColor,
             borderRadius: const BorderRadius.all(Radius.circular(50))),
-        height: height * 0.09,
+          height: height * 0.08,
         width: width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -5,7 +5,7 @@ class DrawerList extends StatelessWidget {
   final String title;
   final IconData icon;
   final VoidCallback onPressed;
-  DrawerList({
+  const DrawerList({
     super.key,
     required this.title,
     required this.icon,

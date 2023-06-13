@@ -89,11 +89,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 10,
                 ),
                 Row(
-                  children: [
-                    const Icon(Icons.check_box_outline_blank,
+                  children: const [
+                    Icon(Icons.check_box_outline_blank,
                         color: AppColors.greyColor),
                     Text("Keep me logged in", style: textStyle06),
-                    const Spacer(),
+                    Spacer(),
                     Text("Forgot password?", style: textStyle06)
                   ],
                 ),
@@ -124,12 +124,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
+                    children: const [
                       Text(
                         "You don't have an account?",
                         style: textStyle06,
                       ),
-                      const Text(
+                      Text(
                         "Sign up",
                         style: textStyle05,
                       )

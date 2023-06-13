@@ -3,7 +3,7 @@ import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/widgets/appbar.dart';
 import 'package:helperlog/utils/widgets/custom_button.dart';
 import 'package:helperlog/view/invoice_lists.dart';
-import 'package:helperlog/view/tracking_screen.dart';
+
 
 class ViewTrackedDoc extends StatelessWidget {
   final String docId;
@@ -17,7 +17,6 @@ class ViewTrackedDoc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     return Scaffold(
         backgroundColor: AppColors.whiteColor,
         appBar: CustomAppBar(

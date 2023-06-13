@@ -71,7 +71,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
                       textColor: textStyle04,
                     ),
                     const SizedBox(height: 20),
-                    Text(
+                    const Text(
                         "Enter the tracking id of the documents to get the current status of the document.Enter the tracking id of the documents to get the current status of the documentEnter the tracking id of the documents to get the current status of the documentEnter the tracking id of the documents to get the current status of the documentEnter the tracking id of the documents to get the current status of the documentEnter the tracking id of the documents to get the current status of the document",
                         style: textStyle06),
                   ],

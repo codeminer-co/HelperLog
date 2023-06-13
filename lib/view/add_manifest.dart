@@ -50,7 +50,7 @@ class _AddManifestState extends State<AddManifest> {
                 style: textStyle14,
               ),
               const SizedBox(height: 20),
-              Align(
+              const Align(
                   alignment: Alignment.topLeft,
                   child: Text("Manifest name", style: textStyle10)),
               const SizedBox(height: 10),
@@ -69,7 +69,7 @@ class _AddManifestState extends State<AddManifest> {
                 ),
               ),
               const SizedBox(height: 10),
-              Align(
+              const Align(
                   alignment: Alignment.topLeft,
                   child: Text("Runner", style: textStyle10)),
               const SizedBox(height: 10),
@@ -106,7 +106,7 @@ class _AddManifestState extends State<AddManifest> {
                 ),
               ),
               const SizedBox(height: 10),
-              Align(
+              const Align(
                   alignment: Alignment.topLeft,
                   child: Text("Purchase orders", style: textStyle10)),
               const SizedBox(height: 10),

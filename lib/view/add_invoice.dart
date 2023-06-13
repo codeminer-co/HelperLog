@@ -6,7 +6,6 @@ import 'package:helperlog/utils/widgets/reusableContainer.dart';
 import 'package:helperlog/utils/widgets/textformfield.dart';
 import 'package:helperlog/view/add_new_invoice.dart';
 
-
 class AddInvoice extends StatefulWidget {
   const AddInvoice({super.key});
 
@@ -15,11 +14,11 @@ class AddInvoice extends StatefulWidget {
 }
 
 class _AddInvoiceState extends State<AddInvoice> {
-   final TextEditingController _invoiceNoController = TextEditingController();
-final TextEditingController _quantityController = TextEditingController();
-final TextEditingController _dateController = TextEditingController();
-final TextEditingController _dueDateController = TextEditingController();
-Future<void> _selectDate(BuildContext context) async {
+  final TextEditingController _invoiceNoController = TextEditingController();
+  final TextEditingController _quantityController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
+  final TextEditingController _dueDateController = TextEditingController();
+  Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
@@ -32,7 +31,7 @@ Future<void> _selectDate(BuildContext context) async {
             picked.toString(); // You can format the date here
       });
     }
-     if (picked != null) {
+    if (picked != null) {
       setState(() {
         _dueDateController.text =
             picked.toString(); // You can format the date here
@@ -80,9 +79,8 @@ Future<void> _selectDate(BuildContext context) async {
                           color: AppColors.whiteColor,
                           child: Center(
                             child: MyTextFormField(
-                            
                               icon: null,
-                              controller:_invoiceNoController,
+                              controller: _invoiceNoController,
                               suffixicon: null,
                               myObscureText: false,
                               hinttext: 'Invoice number',
@@ -93,10 +91,9 @@ Future<void> _selectDate(BuildContext context) async {
                         const SizedBox(height: 10),
                         ReusableContainer(
                           height: height * 0.08,
-                         color: AppColors.whiteColor,
+                          color: AppColors.whiteColor,
                           child: Center(
                             child: MyTextFormField(
-                              
                               icon: null,
                               controller: _dateController,
                               suffixicon: IconButton(
@@ -104,7 +101,7 @@ Future<void> _selectDate(BuildContext context) async {
                                 onPressed: () => _selectDate(context),
                               ),
                               myObscureText: false,
-                             hinttext: 'Date',
+                              hinttext: 'Date',
                               onChanged: (value) {},
                             ),
                           ),
@@ -121,9 +118,8 @@ Future<void> _selectDate(BuildContext context) async {
                           color: AppColors.whiteColor,
                           child: Center(
                             child: MyTextFormField(
-                              
                               icon: null,
-                              controller:_quantityController,
+                              controller: _quantityController,
                               suffixicon: null,
                               myObscureText: false,
                               hinttext: 'Quantity',
@@ -132,12 +128,11 @@ Future<void> _selectDate(BuildContext context) async {
                           ),
                         ),
                         const SizedBox(height: 10),
-                         ReusableContainer(
+                        ReusableContainer(
                           height: height * 0.08,
-                         color: AppColors.whiteColor,
+                          color: AppColors.whiteColor,
                           child: Center(
                             child: MyTextFormField(
-                              
                               icon: null,
                               controller: _dueDateController,
                               suffixicon: IconButton(
@@ -145,11 +140,11 @@ Future<void> _selectDate(BuildContext context) async {
                                 onPressed: () => _selectDate(context),
                               ),
                               myObscureText: false,
-                             hinttext: 'Due Date',
+                              hinttext: 'Due Date',
                               onChanged: (value) {},
                             ),
                           ),
-                        ),  
+                        ),
                       ],
                     ),
                   )

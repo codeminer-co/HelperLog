@@ -11,7 +11,7 @@ class AppColors {
   static Color greyColorShade = const Color(0xff8592a1).withOpacity(0.1);
 static Color blueColor =Colors.blue;
   static Color greyColorShade01 = const Color.fromARGB(255, 249, 248, 248);
-  static Color greyColorShade02 = Color.fromARGB(255, 126, 123, 123);
+  static Color greyColorShade02 = const Color.fromARGB(255, 126, 123, 123);
   static const mySwatch =   MaterialColor(0xFF114f64, <int, Color>{
     50: Color(0xFF114f64),
     100: Color(0xFF114f64),
@@ -54,7 +54,7 @@ const textStyle05 = TextStyle(
   color: AppColors.appColor,
   fontWeight: FontWeight.w600,
 );
-final textStyle06 = const TextStyle(
+const textStyle06 = TextStyle(
   fontFamily: 'Roboto',
   fontSize: 15,
   color: AppColors.greyColor,
@@ -77,7 +77,7 @@ const textStyle09 = TextStyle(
   color: AppColors.whiteColor,
 );
 
-final textStyle10 = TextStyle(
+const textStyle10 = TextStyle(
   fontFamily: 'Roboto',
   fontSize: 20,
   fontWeight: FontWeight.w700,
@@ -96,12 +96,12 @@ final textStyle12 = TextStyle(
   fontWeight: FontWeight.w700,
   color: AppColors.greyColorShade02,
 );
-final textStyle13 = TextStyle(
+final textStyle13 = const TextStyle(
   fontFamily: 'Roboto',
   fontSize: 20,
   color: AppColors.appColor,
 );
-final textStyle14 = TextStyle(
+final textStyle14 = const TextStyle(
   fontFamily: 'Roboto',
   fontSize: 25,
   fontWeight: FontWeight.w700,

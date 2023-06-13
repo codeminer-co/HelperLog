@@ -4,7 +4,6 @@ import 'package:helperlog/utils/widgets/appbar.dart';
 import 'package:helperlog/utils/widgets/custom_button.dart';
 import 'package:helperlog/utils/widgets/reusableContainer.dart';
 import 'package:helperlog/utils/widgets/textformfield.dart';
-import 'package:helperlog/utils/widgets/user_form_fields.dart';
 import 'package:helperlog/view/bottom_navigation.dart';
 import 'package:helperlog/view/login_screen.dart';
 
@@ -176,8 +175,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: Center(
                         child: DropdownButtonFormField<String>(
                           value: _gender,
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.fromLTRB(16, 12, 10, 12),
+                          decoration: const InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(16, 12, 10, 12),
                             hintText: 'Gender',
                             hintStyle: textStyle06,
                             enabledBorder: InputBorder.none,
@@ -222,12 +221,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: const [
                           Text(
                             "Already have an account?",
                             style: textStyle06,
                           ),
-                          const Text(
+                          Text(
                             "Login",
                             style: textStyle05,
                           )

@@ -44,7 +44,7 @@ class MyDrawer extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => ViewTrackedDoc(docAgent: 'Doc Agent', docRunner: 'Doc Runner', docId: '4564',)));
+                    builder: (BuildContext context) => const ViewTrackedDoc(docAgent: 'Doc Agent', docRunner: 'Doc Runner', docId: '4564',)));
               }),
 
           DrawerList(
@@ -53,7 +53,7 @@ class MyDrawer extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => TrackingScreen()));
+                    builder: (BuildContext context) => const TrackingScreen()));
               }),
 
           DrawerList(
@@ -62,7 +62,7 @@ class MyDrawer extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => TrackingScreen()));
+                    builder: (BuildContext context) => const TrackingScreen()));
               }),
 
           // const Divider(),

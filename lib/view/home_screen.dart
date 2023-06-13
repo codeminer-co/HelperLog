@@ -75,7 +75,7 @@ class _HomeState extends State<Home> {
                   const SizedBox(height: 20),
                   ReusableContainer(
                     color: AppColors.greyColorShade01,
-                    height: height * 0.09,
+                    height: height * 0.08,
                     child: Center(
                       child: CustomTile(
                         tileColor: null,

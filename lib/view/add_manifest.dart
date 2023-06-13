@@ -55,7 +55,7 @@ class _AddManifestState extends State<AddManifest> {
                   child: Text("Manifest name", style: textStyle10)),
               const SizedBox(height: 10),
               ReusableContainer(
-                height: height * 0.09,
+                height: height * 0.08,
                 color: AppColors.whiteColor,
                 child: Center(
                   child: MyTextFormField(
@@ -74,7 +74,7 @@ class _AddManifestState extends State<AddManifest> {
                   child: Text("Runner", style: textStyle10)),
               const SizedBox(height: 10),
               ReusableContainer(
-                height: height * 0.09,
+                height: height * 0.08,
                 color: AppColors.appColor,
                 child: Center(
                   child: DropdownButtonFormField<String>(
@@ -111,7 +111,7 @@ class _AddManifestState extends State<AddManifest> {
                   child: Text("Purchase orders", style: textStyle10)),
               const SizedBox(height: 10),
               ReusableContainer(
-                height: height * 0.09,
+                height: height * 0.08,
                 color: AppColors.appColor,
                 child: CustomTile(
                   tileColor: null,

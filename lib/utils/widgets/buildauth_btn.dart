@@ -33,7 +33,7 @@ class BuildAuthButton extends StatelessWidget {
             ],
             color: btnColor,
             borderRadius: const BorderRadius.all(Radius.circular(50))),
-          height: height * 0.08,
+          height: height * 0.07,
         width: width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

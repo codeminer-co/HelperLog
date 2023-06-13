@@ -41,7 +41,7 @@ class _InvoiceListsState extends State<InvoiceLists> {
                           vertical: 10,
                           horizontal: 10), // Adjust padding as needed
                       child: ReusableContainer(
-                        height: height * 0.13,
+                        height: height * 0.1,
                         color:AppColors.whiteColor,
                         child: ListTile(
                           title: const Text("File 1", style: textStyle03),

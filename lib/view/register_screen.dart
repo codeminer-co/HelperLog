@@ -74,7 +74,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     // ),
 
                     ReusableContainer(
-                      height: height * 0.09,
+                      height: height * 0.08,
                       color: AppColors.whiteColor,
                       child: Center(
                         child: MyTextFormField(
@@ -92,7 +92,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
 
                     ReusableContainer(
-                    height: height * 0.09,
+                    height: height * 0.08,
                       color: AppColors.whiteColor,
                       child: Center(
                         child: MyTextFormField(
@@ -110,7 +110,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
 
                     ReusableContainer(
-                      height: height * 0.09,
+                      height: height * 0.08,
                       color: AppColors.whiteColor,
                       child: Center(
                         child: MyTextFormField(
@@ -139,7 +139,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
 
                     ReusableContainer(
-                        height: height * 0.09,
+                        height: height * 0.08,
                       color: AppColors.whiteColor,
                       child: Center(
                         child: MyTextFormField(
@@ -171,7 +171,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: 15,
                     ),
                     ReusableContainer(
-                       height: height * 0.09,
+                       height: height * 0.08,
                       color: AppColors.whiteColor,
                       child: Center(
                         child: DropdownButtonFormField<String>(

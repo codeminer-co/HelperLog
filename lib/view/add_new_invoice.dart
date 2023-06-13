@@ -74,7 +74,7 @@ class _AddNewInvoiceState extends State<AddNewInvoice> {
       children: [
         ReusableContainer(
           color: AppColors.whiteColor,
-          height: height * 0.09,
+          height: height * 0.08,
           child: Center(
             child: MyTextFormField(
               controller: controller,

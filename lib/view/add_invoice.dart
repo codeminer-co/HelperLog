@@ -76,7 +76,7 @@ Future<void> _selectDate(BuildContext context) async {
                     child: Column(
                       children: [
                         ReusableContainer(
-                          height: height * 0.09,
+                          height: height * 0.08,
                           color: AppColors.whiteColor,
                           child: Center(
                             child: MyTextFormField(
@@ -92,7 +92,7 @@ Future<void> _selectDate(BuildContext context) async {
                         ),
                         const SizedBox(height: 10),
                         ReusableContainer(
-                          height: height * 0.09,
+                          height: height * 0.08,
                          color: AppColors.whiteColor,
                           child: Center(
                             child: MyTextFormField(
@@ -117,7 +117,7 @@ Future<void> _selectDate(BuildContext context) async {
                     child: Column(
                       children: [
                         ReusableContainer(
-                          height: height * 0.09,
+                          height: height * 0.08,
                           color: AppColors.whiteColor,
                           child: Center(
                             child: MyTextFormField(
@@ -133,7 +133,7 @@ Future<void> _selectDate(BuildContext context) async {
                         ),
                         const SizedBox(height: 10),
                          ReusableContainer(
-                          height: height * 0.09,
+                          height: height * 0.08,
                          color: AppColors.whiteColor,
                           child: Center(
                             child: MyTextFormField(
@@ -157,7 +157,7 @@ Future<void> _selectDate(BuildContext context) async {
               ),
               const SizedBox(height: 20),
               ReusableContainer(
-                height: height * 0.09,
+                height: height * 0.08,
                 color: AppColors.appColor,
                 child: CustomTile(
                   tileColor: null,

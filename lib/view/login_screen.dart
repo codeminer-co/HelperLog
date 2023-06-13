@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+  
     return Scaffold(
         backgroundColor: AppColors.whiteColor,
         body: SingleChildScrollView(
@@ -37,15 +37,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   'Login',
                   style: textStyle08,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 const Text(
                   'Hi, Welcome back!',
                   style: textStyle03,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ReusableContainer(
                   color: AppColors.whiteColor,
-                  height: height * 0.09,
+                 height: height * 0.08,
                   child: Center(
                     child: MyTextFormField(
                       icon: Icons.email,
@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 15,
                 ),
                 ReusableContainer(
-                  height: height * 0.09,
+                height: height * 0.08,
                   color: AppColors.whiteColor,
                   child: Center(
                     child: MyTextFormField(
@@ -90,10 +90,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Row(
                   children: [
-                    Icon(Icons.check_box_outline_blank,
+                    const Icon(Icons.check_box_outline_blank,
                         color: AppColors.greyColor),
                     Text("Keep me logged in", style: textStyle06),
-                    Spacer(),
+                    const Spacer(),
                     Text("Forgot password?", style: textStyle06)
                   ],
                 ),
@@ -107,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => BottomNavBar()));
+                            builder: (context) => const BottomNavBar()));
                   },
                   textColor: textStyle04,
                 ),

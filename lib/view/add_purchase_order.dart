@@ -52,7 +52,7 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
                   child: Text("Purchase order name", style: textStyle10)),
               const SizedBox(height: 10),
               ReusableContainer(
-                height: height * 0.09,
+                height: height * 0.08,
                 color: AppColors.whiteColor,
                 child: Center(
                   child: MyTextFormField(
@@ -71,7 +71,8 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
                   child: Text("Invoices", style: textStyle10)),
               const SizedBox(height: 10),
               ReusableContainer(
-                height: height * 0.09,
+                height: height * 0.08
+                ,
                 color: AppColors.appColor,
                 child: CustomTile(
                   tileColor: null,
@@ -86,7 +87,7 @@ class _AddPurchaseOrderState extends State<AddPurchaseOrder> {
               ),
               const SizedBox(height: 10),
               ReusableContainer(
-                height: height * 0.09,
+                height: height * 0.08,
                 color: AppColors.appColor,
                 child: CustomTile(
                   tileColor: null,

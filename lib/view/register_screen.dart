@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:helperlog/services/repo.dart';
 import 'package:helperlog/utils/constants.dart';
+import 'package:helperlog/utils/snackbar.dart';
 import 'package:helperlog/utils/widgets/appbar.dart';
 import 'package:helperlog/utils/widgets/custom_button.dart';
 import 'package:helperlog/utils/widgets/reusableContainer.dart';
@@ -19,28 +21,58 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController passController = TextEditingController();
   TextEditingController confirmPassController = TextEditingController();
   TextEditingController usernameController = TextEditingController();
-  TextEditingController genderController = TextEditingController();
+  String?  _gender ;
   bool _isPasswordMatch = true;
   List items = ['Male', 'Female', 'Other'];
-  String? _gender;
+
   final _formKey = GlobalKey<FormState>();
   bool _obscureText = false;
+  final Repository _repo = Repository();
   void _onRegisterPressed() {
-    if (_isPasswordMatch) {
-      // Passwords match, perform registration logic
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const BottomNavBar()));
-    } else {
+    if (!_isPasswordMatch) {
       // Passwords don't match, show error message
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Passwords do not match'),
-          backgroundColor: Colors.red,
+          content: Text('Passwords do not match',style :textStyle04),
+          backgroundColor: AppColors.whiteColor,
         ),
       );
+    } else {
+      if (usernameController.text.isEmpty) {
+        SnackbarHelper.showSnackbar(context, "Please fill the username field");
+      }
+      if (emailController.text.isEmpty) {
+        SnackbarHelper.showSnackbar(context, "Please fill the email field");
+      } else if (passController.text.isEmpty) {
+        SnackbarHelper.showSnackbar(context, "Please fill the password field");
+      } else if (passController.text.length < 6) {
+        SnackbarHelper.showSnackbar(context, "Password must be greater than 6");
+      } else if (_gender == null) {
+        SnackbarHelper.showSnackbar(context, "Please select your gender");
+      } else {
+        Map data = {
+          'email': emailController.text.toString(),
+          'password': passController.text.toString(),
+          'username': usernameController.text.toString(),
+          'gender': _gender
+        };
+        _repo.register(data);
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const LoginScreen()),
+        );
+      }
     }
   }
-
+@override
+  void dispose() {
+    // Dispose the text editing controllers
+    emailController.dispose();
+    passController.dispose();
+    confirmPassController.dispose();
+    usernameController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -91,7 +123,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
 
                     ReusableContainer(
-                    height: height * 0.08,
+                      height: height * 0.08,
                       color: AppColors.whiteColor,
                       child: Center(
                         child: MyTextFormField(
@@ -138,7 +170,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
 
                     ReusableContainer(
-                        height: height * 0.08,
+                      height: height * 0.08,
                       color: AppColors.whiteColor,
                       child: Center(
                         child: MyTextFormField(
@@ -170,7 +202,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: 15,
                     ),
                     ReusableContainer(
-                       height: height * 0.08,
+                      height: height * 0.08,
                       color: AppColors.whiteColor,
                       child: Center(
                         child: DropdownButtonFormField<String>(
@@ -192,7 +224,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               .toList(),
                           onChanged: (value) {
                             setState(() {
-                              _gender = value;
+                              _gender = value ;
                             });
                           },
                         ),

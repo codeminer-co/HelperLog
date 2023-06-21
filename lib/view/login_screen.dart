@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:helperlog/models/user_model.dart';
+import 'package:helperlog/services/repo.dart';
 import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/images.dart';
+import 'package:helperlog/utils/snackbar.dart';
 import 'package:helperlog/utils/widgets/buildauth_btn.dart';
 import 'package:helperlog/utils/widgets/custom_button.dart';
 import 'package:helperlog/utils/widgets/reusableContainer.dart';
 import 'package:helperlog/utils/widgets/textformfield.dart';
 import 'package:helperlog/view/bottom_navigation.dart';
+
 import 'package:helperlog/view/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,13 +20,38 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final Repository _repo = Repository();
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
   bool _obscureText = false;
+  Future<bool> _onLoginPressed() async {
+    if (emailController.text.isEmpty ||
+        passController.text.isEmpty ||
+        passController.text.length < 6) {
+      return false;
+    } else {
+      Map data = {
+        'email': emailController.text.toString(),
+        'password': passController.text.toString()
+      };
+
+      UserModel? user = await _repo.login(data);
+
+      return user != null;
+    }
+  }
+@override
+  void dispose() {
+    // Dispose the text editing controllers
+    emailController.dispose();
+    passController.dispose();
+  
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-  
+
     return Scaffold(
         backgroundColor: AppColors.whiteColor,
         body: SingleChildScrollView(
@@ -45,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 10),
                 ReusableContainer(
                   color: AppColors.whiteColor,
-                 height: height * 0.08,
+                  height: height * 0.08,
                   child: Center(
                     child: MyTextFormField(
                       icon: Icons.email,
@@ -61,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 15,
                 ),
                 ReusableContainer(
-                height: height * 0.08,
+                  height: height * 0.08,
                   color: AppColors.whiteColor,
                   child: Center(
                     child: MyTextFormField(
@@ -104,10 +133,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: AppColors.appColor,
                   text: 'Login',
                   onPressed: () {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const BottomNavBar()));
+                    _onLoginPressed().then((success) {
+                      if (success) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>  BottomNavBar()),
+                        );
+                      } else {
+                        SnackbarHelper.showSnackbar(
+                            context, "Invalid credentials");
+                      }
+                    });
                   },
                   textColor: textStyle04,
                 ),

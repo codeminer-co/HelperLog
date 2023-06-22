@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:helperlog/services/repo.dart';
+import 'package:helperlog/services/auth_repo.dart';
 import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/snackbar.dart';
 import 'package:helperlog/utils/widgets/appbar.dart';
 import 'package:helperlog/utils/widgets/custom_button.dart';
 import 'package:helperlog/utils/widgets/reusableContainer.dart';
 import 'package:helperlog/utils/widgets/textformfield.dart';
+import 'package:helperlog/view/add_invoice.dart';
 import 'package:helperlog/view/bottom_navigation.dart';
 import 'package:helperlog/view/login_screen.dart';
 
@@ -21,19 +22,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController passController = TextEditingController();
   TextEditingController confirmPassController = TextEditingController();
   TextEditingController usernameController = TextEditingController();
-  String?  _gender ;
+  String? _gender;
   bool _isPasswordMatch = true;
   List items = ['Male', 'Female', 'Other'];
 
   final _formKey = GlobalKey<FormState>();
   bool _obscureText = false;
-  final Repository _repo = Repository();
+  final AuthRepository _repo = AuthRepository();
   void _onRegisterPressed() {
     if (!_isPasswordMatch) {
+      // HomeScreen() '/' : DashboardScreen() '/dashboard' -> CarViewScreen() '/dashboard/carViewScreen' -> CarPurchaseScreen() '/dashboard/carViewScreen/carPurchaseScreen';
+      // Navigator.of(context).pushReplacement(MaterialPageRoute(
+      //   builder: (context) =>
+      //       AddInvoice(), // HomeScreen() -> DashboardScreen() -> CarViewScreen() -> AddInvoice()
+      // ));
       // Passwords don't match, show error message
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Passwords do not match',style :textStyle04),
+          content: Text('Passwords do not match', style: textStyle04),
           backgroundColor: AppColors.whiteColor,
         ),
       );
@@ -56,7 +62,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
           'username': usernameController.text.toString(),
           'gender': _gender
         };
-        _repo.register(data);
+        try {
+          _repo.register(data);
+        } catch (e) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content:
+                  Text(e.toString()))); // Error communicating with the server.
+        }
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const LoginScreen()),
@@ -64,7 +76,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
       }
     }
   }
-@override
+
+  @override
   void dispose() {
     // Dispose the text editing controllers
     emailController.dispose();
@@ -73,6 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     usernameController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -224,7 +238,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               .toList(),
                           onChanged: (value) {
                             setState(() {
-                              _gender = value ;
+                              _gender = value;
                             });
                           },
                         ),

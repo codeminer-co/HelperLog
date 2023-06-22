@@ -7,6 +7,7 @@ import 'package:helperlog/utils/widgets/textformfield.dart';
 import 'package:helperlog/view/add_new_invoice.dart';
 
 class AddInvoice extends StatefulWidget {
+  static final String route = '/add-invoice';
   const AddInvoice({super.key});
 
   @override

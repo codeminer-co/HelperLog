@@ -4,14 +4,14 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:helperlog/models/user_model.dart';
-import 'package:helperlog/services/api.dart';
+import 'package:helperlog/services/api_constants.dart';
 
-class Repository {
+class AuthRepository {
   Dio dio = Dio();
 
   Future<UserModel?> login(dynamic data) async {
     try {
-      var response = await dio.post("$loginUrl", data: data);
+      var response = await dio.post(loginUrl!, data: data);
 
       var responseData = response.data;
 
@@ -30,25 +30,16 @@ class Repository {
         }
       }
     } on DioException catch (e) {
-      if (e.error is SocketException) {
-        if (kDebugMode) {
-          print('Network error: ${e.error}');
-        }
-      } else {
-        if (kDebugMode) {
-          print('Dio error: ${e.message}');
-        }
-        // ...
-      }
+      exceptionHelper(e);
     } catch (e) {
-      throw Exception("Error occur while communication with server");
+      rethrow;
     }
     return null;
   }
 
   Future<UserModel?> register(dynamic data) async {
     try {
-      var response = await dio.post("$registerUrl", data: data);
+      var response = await dio.post(registerUrl!, data: data);
 
       var responseData = response.data;
 
@@ -70,19 +61,22 @@ class Repository {
         }
       }
     } on DioException catch (e) {
-      if (e.error is SocketException) {
-        if (kDebugMode) {
-          print('Network error: ${e.error}');
-        }
-      } else {
-        if (kDebugMode) {
-          print('Dio error: ${e.message}');
-        }
-       
-      }
+      exceptionHelper(e);
     } catch (e) {
       throw Exception(e.toString());
     }
     return null;
+  }
+
+  void exceptionHelper(DioException e) {
+    if (e.error is SocketException) {
+      if (kDebugMode) {
+        print('Network error: ${e.error}');
+      }
+    } else {
+      if (kDebugMode) {
+        print('Dio error: ${e.message}');
+      }
+    }
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helperlog/models/user_model.dart';
-import 'package:helperlog/services/repo.dart';
+import 'package:helperlog/services/auth_repo.dart';
 import 'package:helperlog/utils/constants.dart';
 import 'package:helperlog/utils/images.dart';
 import 'package:helperlog/utils/snackbar.dart';
@@ -20,7 +20,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final Repository _repo = Repository();
+  final AuthRepository _repo = AuthRepository();
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
   bool _obscureText = false;
@@ -40,14 +40,16 @@ class _LoginScreenState extends State<LoginScreen> {
       return user != null;
     }
   }
-@override
+
+  @override
   void dispose() {
     // Dispose the text editing controllers
     emailController.dispose();
     passController.dispose();
-  
+
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -138,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>  BottomNavBar()),
+                              builder: (context) => BottomNavBar()),
                         );
                       } else {
                         SnackbarHelper.showSnackbar(
